@@ -16,6 +16,8 @@ I cannot reproduce the issue when at least one of the requirements below is not 
 - The GPU is a Nvidia GeForce RTX 3050
 - The shader code is a GLSL string
 
+[This SO issue](https://stackoverflow.com/questions/38362596/opengl-imagesize-is-always-zero) may be related.
+
 ## Steps to reproduce
 
 1. Install GLFW, glad and the Vulkan SDK.
