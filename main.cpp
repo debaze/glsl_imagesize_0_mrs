@@ -51,9 +51,9 @@ int main() {
 	glDebugMessageCallback(debugMessageCallback, nullptr);
 	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 
-	/// Load compute shader SPIR-V.
+	/// Load shader SPIR-V.
 
-	std::fstream stream("Shader/ImageSize.comp.spv", std::ios::ate | std::ios::binary);
+	std::ifstream stream("ImageSize.comp.spv", std::ios::ate | std::ios::binary);
 
 	if (!stream.is_open()) {
 		std::cerr << "Failed to open stream." << std::endl;
@@ -69,7 +69,7 @@ int main() {
 	stream.read((char*) binary.data(), length);
 	stream.close();
 
-	/// Create compute shader and compile it.
+	/// Create shader and compile it.
 
 	const GLuint shader = glCreateShader(GL_COMPUTE_SHADER);
 
@@ -127,13 +127,13 @@ int main() {
 	glDeleteShader(shader);
 	glUseProgram(program);
 
-	/// Create texture.
+	/// Create 64x32 RGBA texture.
 
 	GLuint texture;
 
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
-	glBindImageTexture(0, texture, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA8);
+	glBindImageTexture(0, texture, 0, GL_FALSE, 0, GL_READ_ONLY, GL_RGBA8);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 64, 32, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 
 	/// Create buffer.
