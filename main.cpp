@@ -1,6 +1,3 @@
-// This may be related:
-// https://stackoverflow.com/questions/38362596/opengl-imagesize-is-always-zero
-
 #include <fstream>
 #include <iostream>
 #include <vector>
