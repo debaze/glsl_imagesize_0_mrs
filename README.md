@@ -2,11 +2,11 @@
 
 ## Description
 
-I have an HP Victus (7L1J7EA) laptop with an Intel Core i5-12450H and Windows [TODO].
+I have an HP Victus (7L1J7EA) laptop with an Intel Core i5-12450H and Windows 11 Home 24H2.
 
 I can reproduce the issue when every requirement below is met:
 - The graphics API is OpenGL 4.6
-- The GPU is an Intel UHD Graphics (Intel Core i5-12450H)
+- The GPU is Intel UHD Graphics for 12th Gen Intel Processors (Intel Graphics Driver 31.0.101.4502)
 - The shader code is a SPIR-V binary generated from GLSL
 
 I cannot reproduce the issue when at least one of the requirements below is not met:
